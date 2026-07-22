@@ -1,0 +1,154 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'arcade';
+    src: url('fonte/arcade.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'pixel';
+    src: url('fonte/pixel.otf') format('opentype');
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: rgba(233, 233, 99, 0.541);
+    border: 4px solid #000;
+    font-family: 'arcade', 'pixel', 'pixelgame', Arial, Helvetica, sans-serif;
+}
+
+#container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 30px;
+}
+
+#container-header h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+#placarj,
+#placarc {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    box-shadow:
+        4px 0 0 0 #000,
+        -4px 0 0 0 #000,
+        0 4px 0 0 #000,
+        0 -4px 0 0 #000,
+        8px 0 0 0 #6b6b68,
+        -8px 0 0 0 #6b6b68,
+        0 8px 0 0 #6b6b68,
+        0 -8px 0 0 #6b6b68;
+}
+
+#placarj img,
+#placarc img {
+    width: 70px;
+    height: 70px;
+    margin-top: 10px;
+    image-rendering: pixelated;
+}
+
+#pontos-jogador,
+#pontos-computador {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#container-header > div:not(#placarj):not(#placarc) {
+    padding-top: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#resultado {
+    font-size: 22px;
+    padding: 20px;
+    min-height: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#botoes {
+    display: flex;
+    gap: 16px;
+}
+
+.opcao {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 10px 24px;
+    font-family: 'arcade', 'pixel', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.opcao:hover {
+    background-color: #eeeeee;
+}
+
+#jogar-novamente {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 12px 28px;
+    font-family: 'arcade', 'pixel', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#jogar-novamente:hover {
+    background-color: #eeeeee;
+}
+
+#container-nome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+#container-nome h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+#nome-jogador {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #000000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#dica {
+    margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #333;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpô</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div id="container-header">
+            <div id="placarj">
+                <h1 id="player-jogador">{{ nome }}</h1>
+                <img id="imagem-jogador" src="{{ url_for('static', filename='imagens/pedra.jpeg') }}" alt="Sua jogada">
+                <span id="pontos-jogador">{{ pontos_jogador }}</span>
+            </div>
+            <div>
+                <h1>Placar</h1>
+            </div>
+            <div id="placarc">
+                <h1 id="player-computador">Computador</h1>
+                <img id="imagem-computador" src="{{ url_for('static', filename='imagens/pedra.jpeg') }}" alt="Jogada do computador">
+                <span id="pontos-computador">{{ pontos_computador }}</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="resultado"></div>
+        <button id="jogar-novamente" style="display: none;">Jogar novamente</button>
+
+        <div id="botoes">
+            <button id="pedra" class="opcao">Pedra</button>
+            <button id="papel" class="opcao">Papel</button>
+            <button id="tesoura" class="opcao">Tesoura</button>
+        </div>
+    </main>
+
+    <script>
+        const imagens = {
+            pedra: "{{ url_for('static', filename='imagens/pedra.jpeg') }}",
+            papel: "{{ url_for('static', filename='imagens/papel.jpeg') }}",
+            tesoura: "{{ url_for('static', filename='imagens/tesoura.jpeg') }}"
+        };
+    </script>
+    <script src="{{ url_for('static', filename='jogo.js') }}"></script>
+</body>
+</html>
