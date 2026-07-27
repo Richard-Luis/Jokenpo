@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 OPCOES = ['pedra', 'papel', 'tesoura']
-PONTOS_PARA_VENCER = 10
+pontos_vencedor = 10
 
 VENCE = {
     'pedra': 'tesoura',
@@ -63,7 +63,7 @@ def jogar():
     pontos_computador_atual = session.get('pontos_computador', 0)
 
     # impede novas jogadas se a partida já foi decidida
-    if pontos_jogador_atual >= PONTOS_PARA_VENCER or pontos_computador_atual >= PONTOS_PARA_VENCER:
+    if pontos_jogador_atual >= pontos_vencedor or pontos_computador_atual >= pontos_vencedor:
         return jsonify({'erro': 'A partida já terminou'}), 400
 
     dados = request.get_json()
@@ -83,11 +83,11 @@ def jogar():
     pontos_jogador = session.get('pontos_jogador', 0)
     pontos_computador = session.get('pontos_computador', 0)
 
-    fim_de_jogo = pontos_jogador >= PONTOS_PARA_VENCER or pontos_computador >= PONTOS_PARA_VENCER
+    fim_de_jogo = pontos_jogador >= pontos_vencedor or pontos_computador >= pontos_vencedor
     vencedor_final = None
 
     if fim_de_jogo:
-        vencedor_final = 'jogador' if pontos_jogador >= PONTOS_PARA_VENCER else 'computador'
+        vencedor_final = 'jogador' if pontos_jogador >= pontos_vencedor else 'computador'
 
     return jsonify({
         'escolha_computador': escolha_computador,
